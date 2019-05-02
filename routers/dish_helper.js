@@ -1,4 +1,3 @@
-// db is a configured instance of knex that knows how to talk to the database
 const db = require('../data/dbconfig');
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
 };
 
 
-function find() {
+function find(id) {
   return db('dish');
 }
 
