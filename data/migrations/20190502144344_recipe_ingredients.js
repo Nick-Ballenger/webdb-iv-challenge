@@ -21,7 +21,7 @@ exports.up = function(knex, Promise) {
       .onDelete('RESTRICT')
       .onUpdate('CASCADE')
 
-    tbl.float('quantity').notNullable
+    tbl.string('quantity').notNullable
     })
 };
 
