@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('dish_table', function(tbl) {
+    return knex.schema.createTable('dish', function(tbl) {
 
         tbl.increments()
 
@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists('dish_table')
+    return knex.schema.dropTableIfExists('dish')
 };
