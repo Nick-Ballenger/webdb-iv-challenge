@@ -8,20 +8,18 @@ module.exports = {
   remove,
 };
 
-
-function find() {
-    return db('recipes').join("dish", "recipes.dish_id").select("recipes.id","recipes.name")
-    // .join('dish', "recipes.dish_id", '=', "dish.id")
-    // .select("recipes.id", "recipes.recipe_name", { dish: "dish.dish_name" })
-
+function find(){
+  return db('recipes')
+            .join("dish", "recipes.dish_id", '=', "dish.id")
+            .select("recipes.id", "recipes.name", { dish: "dish.name" })
 }
 
 function findById(id) {
     return db("recipes")
     .join('dish', "dish.id", "=", "recipes.dish_id")
-    .join('recipeingredients', "recipes.id", "=", 'recipeingredients.recipe_id' )
-    .join('ingredients','ingredients.id', "=", 'recipeingredients.ingredient_id' )
-    .select('dish.dish_name','recipes.recipe_name','ingredients.ingredient_name','recipeingredients.quantity')
+    .join('recipe_ingredients', "recipes.id", "=", 'recipe_ingredients.recipe_id' )
+    .join('ingredients','ingredients.id', "=", 'recipe_ingredients.ingredient_id' )
+    .select('dish.dish_name','recipes.recipe_name','ingredients.ingredient_name','recipe_ingredients.quantity')
     .where({'recipes.dish_id':id})
 }
 

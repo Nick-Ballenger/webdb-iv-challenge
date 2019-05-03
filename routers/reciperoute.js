@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
       res
         .status(500)
         .json({ message: 'We ran into an error retrieving the recipes' });
-    });
+
+      });
 });
 
 router.get('/:id', async (req, res) => {
